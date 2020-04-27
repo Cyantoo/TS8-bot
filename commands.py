@@ -38,4 +38,4 @@ async def compris(ctx):
 
 
 
-bot.run("NjkyMDc5NjY2MTM1MDQwMDgx.XqLbEA.IRdIJvuSdcFaZa5TxC2x-eJCymk")
+bot.run("Your token here")
