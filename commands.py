@@ -36,19 +36,19 @@ async def on_reaction_add(reaction,user):
                     index_non = current_fields.index(field)
             is_emoji_oui = reaction.emoji ==  emoji_oui
             if is_emoji_oui:
-                if user.name not in lines_oui:
+                if user.display_name not in lines_oui:
                     lines_oui[0] = str(int(lines_oui[0])+1)
-                    lines_oui.append(user.name)
-                if user.name in lines_non:
+                    lines_oui.append(user.display_name)
+                if user.display_name in lines_non:
                     lines_non[0] = str(int(lines_non[0])-1)
-                    lines_non.remove(user.name)
+                    lines_non.remove(user.display_name)
             else:
-                if user.name not in lines_non:
+                if user.display_name not in lines_non:
                     lines_non[0] = str(int(lines_non[0])+1)
-                    lines_non.append(user.name)
-                if user.name in lines_oui:
+                    lines_non.append(user.display_name)
+                if user.display_name in lines_oui:
                     lines_oui[0] = str(int(lines_oui[0])-1)
-                    lines_oui.remove(user.name)
+                    lines_oui.remove(user.display_name)
             current_embed.set_field_at(index = index_oui, name = name_field_oui, value = '\n'.join(lines_oui))
             current_embed.set_field_at(index = index_non, name = name_field_non, value = '\n'.join(lines_non))
             await reaction.message.edit(embed = current_embed)
